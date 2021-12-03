@@ -1,7 +1,11 @@
 package com.tutorial.point.tutorial.point.repository;
 
 import com.tutorial.point.tutorial.point.domain.User;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepo extends CrudRepository<User, String> {
+@Repository
+public interface UserRepo extends MongoRepository<User, String> {
+
 }
