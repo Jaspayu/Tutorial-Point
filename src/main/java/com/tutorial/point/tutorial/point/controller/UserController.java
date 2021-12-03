@@ -17,6 +17,7 @@ public class UserController {
     public List<User> getAllUserDetails(){
         return userService.fetchAllUser();
     }
+
     @GetMapping("user-service/fetchAllUsers/{id}")
     public User getUserDetailsById(@PathVariable String uuid){
         return userService.fetchUserById(uuid);
@@ -33,7 +34,7 @@ public class UserController {
         return("user saved successfully");
     }
     @GetMapping("hello")
-    public String hellow(){
+    public String hello(){
         return("Hello User!!");
     }
 }
