@@ -18,12 +18,12 @@ public class UserController {
         return userService.fetchAllUser();
     }
 
-    @GetMapping("user-service/fetchAllUsers/{id}")
-    public User getUserDetailsById(@PathVariable String uuid){
-        return userService.fetchUserById(uuid);
+    @GetMapping("user-service/fetchAllUsers/id/{id}")
+    public User getUserDetailsById(@PathVariable String id){
+        return userService.fetchUserById(id);
     }
 
-    @GetMapping("user-service/fetchAllUsers/{email}")
+    @GetMapping("user-service/fetchAllUsers/email/{email}")
     public User getUserDetailsByEmail(@PathVariable String email){
         return userService.fetchUserByEmail(email);
     }
