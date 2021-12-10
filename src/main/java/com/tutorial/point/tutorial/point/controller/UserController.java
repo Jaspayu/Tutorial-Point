@@ -38,8 +38,4 @@ public class UserController {
         userService.saveUser(user);
         return("user saved successfully");
     }
-    @GetMapping("hello")
-    public String hello(){
-        return("Hello User!!");
-    }
 }

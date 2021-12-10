@@ -14,4 +14,5 @@ public class ExceptionFormat {
     String message;
     LocalDate timeStamp;
     HttpStatus httpStatus;
+    String exceptionName;
 }
