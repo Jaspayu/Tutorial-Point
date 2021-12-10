@@ -1,11 +1,11 @@
 package com.tutorial.point.tutorial.point.service;
 
 import com.tutorial.point.tutorial.point.domain.User;
+import com.tutorial.point.tutorial.point.exception.UserNotFoundException;
 import com.tutorial.point.tutorial.point.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,13 +22,23 @@ public class UserServiceImpl implements UserService {
     @Override
     public User fetchUserById(String uuid) {
         Optional<User> user = userRepo.findById(uuid);
-        //ThrowNoUserFoundException
-        return user.orElse(null);
+        if(user.isPresent()){
+            return user.get();
+        }else
+        {
+            throw new UserNotFoundException("No User Found For ID " + uuid);
+        }
     }
 
     @Override
     public User fetchUserByEmail(String email) {
-        return userRepo.findByEmail(email);
+       Optional<User> user =  userRepo.findByEmail(email);
+       if(user.isPresent()){
+           return user.get();
+       }
+       else{
+           throw new UserNotFoundException("User not Found for email " + email);
+       }
     }
 
     @Override
@@ -37,7 +47,7 @@ public class UserServiceImpl implements UserService {
         if(userList.size()>0){
             return userList;
         }else {
-            return new ArrayList<>(); //throw NoUserFound exception
+            throw new UserNotFoundException("No User has enrolled for this course");
         }
     }
 
