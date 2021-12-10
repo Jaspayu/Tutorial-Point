@@ -18,6 +18,11 @@ public class UserController {
         return userService.fetchAllUser();
     }
 
+    @GetMapping("user-service/fetchAllUsers/course/{course}")
+    public List<User> getAllUserForCourse( @PathVariable String course){
+        return userService.fetchUsersByCourse(course);
+    }
+
     @GetMapping("user-service/fetchAllUsers/id/{id}")
     public User getUserDetailsById(@PathVariable String id){
         return userService.fetchUserById(id);
