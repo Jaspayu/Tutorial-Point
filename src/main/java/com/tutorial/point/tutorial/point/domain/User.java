@@ -12,8 +12,7 @@ import java.util.List;
 @Component
 @AllArgsConstructor
 @Builder
-@Getter
-@Setter
+@Data
 @Document(collection = "User")
 public class User {
     @Id
