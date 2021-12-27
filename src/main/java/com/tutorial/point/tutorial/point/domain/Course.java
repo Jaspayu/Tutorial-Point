@@ -1,9 +1,6 @@
 package com.tutorial.point.tutorial.point.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
@@ -21,4 +18,6 @@ public class Course {
     String courseName;
     double price;
     String facultyName;
+
+
 }
